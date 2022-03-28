@@ -7,9 +7,9 @@ $gender = isset($_POST['gender']) ? $_POST['gender'] : false;
 $reason = isset($_POST['reason']) ? $_POST['reason'] : false;
 $password = isset($_POST['password']) ? $_POST['password'] : false;
 
-$isSubmit = false;//submit
-$error = '';//loi
-$isError = false;//loi
+$isSubmit = false; //submit
+$error = ''; //loi
+$isError = false; //loi
 if (
     $name !== false
     && $age !== false
@@ -20,7 +20,7 @@ if (
     && $password !== false
 ) {
 
-$isSubmit = true;
+    $isSubmit = true;
     require '../conn.php';
     require '../validate.php';
 
@@ -49,22 +49,21 @@ $isSubmit = true;
         $isError = true;
     }
     if (!$isError) {
-    $result = insert('user', array(
-        'name' => $name,
-        'age' => $age,
-        'gender' => $gender,
-        'email' => $email,
-        'size' => $size,
-        'reason' => $reason,
-        'pass' => $password
-    ));
-    
-    if($result){
-        $error = '[OK] Chúc mừng bạn đã rớt vào động mèo đen thành công !<br>';
-    }
-    else {
-        $error = '[Error] Có lỗi xảy ra, vui lòng thử lại sau!<br>';
-    }
+        $result = insert('user', array(
+            'name' => $name,
+            'age' => $age,
+            'gender' => $gender,
+            'email' => $email,
+            'size' => $size,
+            'reason' => $reason,
+            'pass' => $password
+        ));
+
+        if ($result) {
+            $error = '[OK] Chúc mừng bạn đã rớt vào động mèo đen thành công !<br>';
+        } else {
+            $error = '[Error] Có lỗi xảy ra, vui lòng thử lại sau!<br>';
+        }
     }
 }
 ?>
@@ -103,7 +102,9 @@ $isSubmit = true;
                 <div>Trang chủ</div>
             </a>
             <div class="active">Đăng ký</div>
-
+            <a href="../user/user.php">
+                <div>Thành viên</div>
+            </a>
         </div>
         <div>
             <h1 class="mb-0">
@@ -122,7 +123,7 @@ $isSubmit = true;
                 Đăng ký ngay để có những trải nghiệm bùng lổ nào! `(*>﹏<*)′ </p>
                     <div>
                         <h2 class="text-red-dark"> From Đăng ký</h2>
-                        <p id="text-red-dark" style ="color: rgb(185, 9, 9); font-weight: bold; "><?php echo($error) ?> </p>
+                        <p id="text-red-dark" style="color: rgb(185, 9, 9); font-weight: bold; "><?php echo ($error) ?> </p>
 
                         <form action="" method="post" id="form">
                             <label>

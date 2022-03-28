@@ -23,4 +23,3 @@ function validate ($str) {
     $str = str_replace('>', '&gt;', $str);
     return $str;
 }
-?>

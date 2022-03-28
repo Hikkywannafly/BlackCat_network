@@ -52,6 +52,7 @@ $records = count_records();
             <div id="logo" class="pr-4">
                 <span>BLACKCAT</span>
                 <span>NETWORK</span>
+             
             </div>
             <div id="wellcome">
                 <h1>Chào mừng bạn đến với </h1>
@@ -64,6 +65,9 @@ $records = count_records();
             <div class="active">Trang chủ</div>
             <a href="./regis/register.php">
                 <div>Đăng ký</div>
+            </a>
+            <a href="./user/user.php">
+                <div>Thành viên</div>
             </a>
         </div>
         <div>
@@ -97,7 +101,7 @@ $records = count_records();
 
                         <div class="list">
                             <?php foreach ($posts  as $post) { ?>
-                                <a href="user?id=<?php echo $post['id']; ?>">
+                                <a href="./user/user.php">
                                     <div>
                                         <p class="text-red-dark" style="color: #602222"><?php echo $post['name']; ?></p>
                                         <p><?php echo $post['reason']; ?></p>
@@ -120,10 +124,10 @@ $records = count_records();
                             <?php
                                 }
                             } ?>
+                        </div>
                     </div>
+                    <br>
         </div>
-        <br>
-    </div>
 </body>
 
 </html>
