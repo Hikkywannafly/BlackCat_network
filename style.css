@@ -163,11 +163,19 @@ h1 {
 }
 
 .text-pink-dark {
-  color: var(-color-red-dark);
+  color: var(--color-red-dark);
   font-family: 'Andika New Basic', sans-serif;
 }
-
-
+.text-banner{
+  color: var(black);
+  font-size: 20px;
+  font-family: 'Andika New Basic', sans-serif;
+}
+.text-pink2 {
+  color: var(rgb(253, 46, 108));
+  font-size: 14px;
+  font-family: 'Andika New Basic', sans-serif;
+}
 
 
 /* button */

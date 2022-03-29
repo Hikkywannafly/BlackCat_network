@@ -101,7 +101,7 @@ $records = count_records();
 
                         <div class="list">
                             <?php foreach ($posts  as $post) { ?>
-                                <a href="./user/?id=<?php echo ($post['id']); ?>">
+                                <a href="./user/user.php?id=<?php echo ($post['id']); ?>">
                                     <div>
                                         <p class="text-red-dark" style="color: #602222"><?php echo $post['name']; ?></p>
                                         <p><?php echo $post['reason']; ?></p>

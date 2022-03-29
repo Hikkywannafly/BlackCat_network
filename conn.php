@@ -78,4 +78,24 @@ function update($sql){
     $conn = connect();
     $result = mysqli_query($conn, $sql);
     if (!$result) die('[Database class - update] Truy vấn sai');
+    disconnect($conn);
+}
+
+function remove ($id){
+    $conn = connect();
+    $sql = "DELETE FROM user WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) echo('[<script>alert("Mật khẩu không đúng")</script>');
+     disconnect($conn);
+
+}
+function get_info($sql){
+    $conn =  connect();
+    $result = mysqli_query($conn, $sql);
+    if (!$result) die('[Database class - get_row] Truy vấn sai');
+    
+    $info = mysqli_fetch_assoc($result);
+    mysqli_free_result($result);
+    disconnect($conn);
+    return $info;
 }

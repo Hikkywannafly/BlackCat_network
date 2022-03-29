@@ -5,6 +5,71 @@ require '../validate.php';
 $id = empty($_GET['id']) ? 'false' : $_GET['id'];
 if (!$id) die('Đã có lỗi xãy ra');
 $id = validate($id);
+$query = "select * from user where id = $id";
+$getInfo = get_info($query);
+
+
+$name = isset($_POST['name']) ? $_POST['name'] : false;
+$age = isset($_POST['age']) ? $_POST['age'] : false;
+$email = isset($_POST['email']) ? $_POST['email'] : false;
+$size = isset($_POST['size']) ? $_POST['size'] : false;
+$gender = isset($_POST['gender']) ? $_POST['gender'] : false;
+$reason = isset($_POST['reason']) ? $_POST['reason'] : false;
+$password = isset($_POST['password']) ? $_POST['password'] : false;
+
+$query_update = "UPDATE user set name = '$name' , age = $age, email= '$email', size = '$size', gender = $gender , reason = '$reason' where id= $id";
+
+$error = ''; //loi
+$isError = false; //loi
+
+
+if (
+    $name !== false
+    && $age !== false
+    && $email !== false
+    && $size !== false
+    && $gender !== false
+    &&  $reason !== false
+    && $password !== false
+) {
+    if( $password != $getInfo['pass']) {
+        $error .= '[Error] Password không đúng !<br>';
+        $isError = true;
+    }
+
+    if (!isEmail($email)) {
+        $error .= '[Error] Email không hợp lệ!<br>';
+        $isError = true;
+    }
+
+    if ($age / 1 != $age) {
+        $error .= '[Error] Tuổi không phải là số!<br>';
+        $isError = true;
+    }
+
+    if ($age >= 150 || $age < 1) {
+        $error .= '[Error] Tuổi phải nhỏ hơn 150. Bạn tưởng tui ngu chắc :v <br>';
+        $isError = true;
+    }
+
+    if ($gender / 1 != $gender || $gender > 1 || $gender < 0) {
+        $error .= '[Error] Giới tính không hợp lệ!<br>';
+        $isError = true;
+    }
+    
+    if (!$isError) {
+        $result = update($query_update);
+        echo(!$result);
+        if (!$result) {
+            $error = '[OK] Chúc mừng bạn đã đổi thông tin thành công !<br>';
+        } else {
+            $error = '[Error] Có lỗi xảy ra, vui lòng thử lại sau!<br>';
+        }
+    }
+}
+
+
+
 
 ?>
 
@@ -52,32 +117,36 @@ $id = validate($id);
         </div>
         <div>
             <h1 class="mb-0">
-                <span class="text-red-dark">COMMING SOON>.< </span>
+                <span class="text-red-dark"><?php echo $getInfo['name']; ?> </span>
             </h1>
 
         </div>
         <div>
-            <p class="text-red"></p>
-
-            <h1 class="text-red-dark">
-
-            </h1>
-
-            <div class="hashtag"> Nam</div>
-
-            <div class="hashtag"> 20 tuổi</div>
-            <p class="text-pink"></p>
+        <p class=".text-pink2"> Liên hệ: <?php echo $getInfo['email']; ?></p>
 
 
+            <div class="hashtag"> <?php 
+                    $gender = $getInfo['gender'];
+                    if($gender == 0){
+                        echo 'Nam';
+                    }
+                    else{
+                        echo 'Nữ';
+                    }
+              ?></div>
 
-            <p class="text-pink-dark"></p>
+            <div class="hashtag"> <?php echo $getInfo['age']; ?> tuổi</div>
+            <div class="hashtag"> <?php echo $getInfo['size']; ?> </div>
+            <p class="text-banner">Tiểu sử:</p>
+            <p class="text-pink"> <?php echo $getInfo['reason']; ?> </p>
 
             <p>
                 <span style="cursor: pointer" class="text-red mr-1" onclick="update()">[Sửa]</span>
                 <span style="cursor: pointer" class="text-red" onclick="remove()">[Xoá]</span>
             </p>
         </div>
-        <form action="./?action=update&id=<?php echo $id; ?>" method="post" id="form_update" hidden>
+        <p id="text-red-dark" style="color: rgb(185, 9, 9); font-weight: bold; "><?php echo ($error) ?> </p>
+        <form action="./user.php?id=<?php echo $id; ?>" method="post" id="form_update" hidden>
             <h2 class="text-red-dark">Sửa thông tin đăng ký </h2>
 
             <label>
@@ -124,16 +193,14 @@ $id = validate($id);
             </label>
             <button class="btn"> Cập nhật !! </button>
         </form>
-        <form hidden id="form_remove">
+        <form  action="./delete.php?id=<?php echo $id; ?>" method="post" id="form_remove" hidden >
         <h2 class="text-red-dark">Xóa thông tin đăng ký </h2>
         <label>
                 Nhập mật khẩu của bạn ^^
-                <input type="password" name="password" required placeholder="Mật khẩu bạn đã đăng kí">
+                <input type="password1" name="password1" required placeholder="Mật khẩu bạn đã đăng kí">
             </label>
         <button class="btn"> Xóa </button>
         </form>
-
-
         <script src="event.js"></script>
 </body>
 
