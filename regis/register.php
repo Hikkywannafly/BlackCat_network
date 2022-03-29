@@ -102,9 +102,9 @@ if (
                 <div>Trang chủ</div>
             </a>
             <div class="active">Đăng ký</div>
-            <a href="../user/user.php">
+            <!-- <a href="../user/user.php">
                 <div>Thành viên</div>
-            </a>
+            </a> -->
         </div>
         <div>
             <h1 class="mb-0">

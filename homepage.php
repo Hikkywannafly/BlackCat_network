@@ -66,9 +66,9 @@ $records = count_records();
             <a href="./regis/register.php">
                 <div>Đăng ký</div>
             </a>
-            <a href="./user/user.php">
+            <!-- <a href="./user/user.php">
                 <div>Thành viên</div>
-            </a>
+            </a> -->
         </div>
         <div>
             <h1 class="mb-0">
@@ -101,7 +101,7 @@ $records = count_records();
 
                         <div class="list">
                             <?php foreach ($posts  as $post) { ?>
-                                <a href="./user/user.php">
+                                <a href="./user/?id=<?php echo ($post['id']); ?>">
                                     <div>
                                         <p class="text-red-dark" style="color: #602222"><?php echo $post['name']; ?></p>
                                         <p><?php echo $post['reason']; ?></p>
