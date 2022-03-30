@@ -79,6 +79,7 @@ if (
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../font/fontawesome-free-5.12.1-web/fontawesome-free-5.12.1-web/css/all.min.css">
 </head>
 
 <body>
@@ -91,9 +92,47 @@ if (
                 <span>NETWORK</span>
             </div>
             <div id="wellcome">
-                <h1>Chào mừng bạn đến với </h1>
                 <h1 style="font-size:25px; color:rgb(0, 0, 0)"> BlackCat Network</h1>
                 <p>Nơi kết nối những tâm hồn trẻ thơ</p>
+            </div>
+            <div id="social-icon">
+                <ul class="wrapper">
+                    <a href="https://www.facebook.com/TamNC29">
+                        <li class="icon facebook">
+
+                            <span class="tooltip">Facebook</span>
+                            <span><i class="fab fa-facebook"></i></span>
+                        </li>
+                    </a>
+
+                    <a href="https://twitter.com/TamNguy28327146">
+                        <li class="icon twitter">
+                            <span class="tooltip">Twitter</span>
+                            <span><i class="fab fa-twitter"></i></span>
+
+                        </li>
+                    </a>
+                    <a href="https://github.com/TamNguyenS">
+                        <li class="icon instagram">
+                            <span class="tooltip">Instagram</span>
+                            <span><i class="fab fa-instagram"></i></span>
+
+                        </li>
+                    </a>
+                    <a href="https://github.com/TamNguyenS">
+                        <li class="icon github">
+                            <span class="tooltip">Github</span>
+                            <span><i class="fab fa-github"></i></span>
+
+                        </li>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC_aLW5yh278IJt2S4qTDIrA/featured">
+                        <li class="icon youtube">
+                            <span class="tooltip">Youtube</span>
+                            <span><i class="fab fa-youtube"></i></span>
+                        </li>
+                </ul>
+                </a>
             </div>
         </div>
         <br>

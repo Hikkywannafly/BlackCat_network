@@ -1,8 +1,8 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'nguyenchitam123');
-define('DB_NAME', 'blackcat_network');
+define('DB_SERVER', 'sql100.epizy.com');
+define('DB_USERNAME', 'epiz_31355925');
+define('DB_PASSWORD', '6jmFML5IKHji');
+define('DB_NAME', 'epiz_31355925_blackcat_network');
 //connect to the database
 function connect()
 {
